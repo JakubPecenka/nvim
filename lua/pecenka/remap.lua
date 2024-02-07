@@ -8,19 +8,25 @@ vim.keymap.set("n", "<leader>p", vim.cmd.Ex)
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>y", [["+y]])
 
--- to keep in the middle when up-and-downing 
+-- turn on copilot
+vim.keymap.set("n", "<leader>§§", ":Copilot enable<CR>")
+
+-- to keep in the middle when up-and-downing
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<A-d>", "<C-d>zz")
+vim.keymap.set("n", "<A-u>", "<C-u>zz")
 
 -- exit insert mode to normal mode
 vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("i", "<A-c>", "<Esc>")
 
 -- replace
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- delete or paste over and keep buffered
 vim.keymap.set("x", "<leader>P", [["_dP]])
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>D", [["_d]])
 
 -- format whole document
 vim.keymap.set("n", "<leader>=", vim.lsp.buf.format)
@@ -31,10 +37,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- save by ctr + s
 vim.keymap.set("n", "<C-s>", ":w<Enter>")
+vim.keymap.set("n", "<A-s>", ":w<Enter>")
 
 -- windows adjustments
-vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]]) -- make the window biger vertically
-vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
+vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]])   -- make the window biger vertically
+vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]])   -- make the window smaller vertically
 vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
-

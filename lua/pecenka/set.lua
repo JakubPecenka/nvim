@@ -14,6 +14,11 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
@@ -25,4 +30,6 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.colorcolumn = "80"
 
+-- disable copilot plugin -- doesn't work
+-- vim.cmd(":Copilot disable")
 
