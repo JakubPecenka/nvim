@@ -44,6 +44,16 @@ config = function()
     }
   })
 
+  lsp.configure('pyright', {
+    settings = {
+      python = {
+        analysis = {
+          typeCheckingMode ="strict",
+        }
+      }
+    }
+  })
+
 
   lsp.set_preferences({
     -- suggest_lsp_servers = false,
