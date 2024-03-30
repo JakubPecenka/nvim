@@ -28,6 +28,18 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.colorcolumn = "80"
 
+-- folding setup
+-- -- vim.opt.foldmethod = "expr"
+-- -- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- vim.opt.foldmethod = "indent"
+-- vim.opt.foldlevel = 99
+-- vim.opt.foldlevelstart = 1
+-- vim.opt.foldnestmax = 2
+
+
 -- disable copilot plugin -- doesn't work
 -- vim.cmd(":Copilot disable")
+
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
