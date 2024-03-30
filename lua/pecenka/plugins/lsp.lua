@@ -72,14 +72,31 @@ return {
         })
 
         cmp.setup({
-            snippet = {
-                expand = function(args)
-                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                end,
-            },
-            mapping = {
-              ['Enter'] = cmp.mapping.confirm({ select = true }),
-            },
+          snippet = {
+            expand = function(args)
+              require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            end,
+          },
+          mapping = {
+            ['<CR>'] = cmp.mapping.confirm({select = true}),
+            ['<C-e>'] = cmp.mapping.abort(),
+            ['<Up>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
+            ['<Down>'] = cmp.mapping.select_next_item({behavior = 'select'}),
+            ['<C-p>'] = cmp.mapping(function()
+              if cmp.visible() then
+                cmp.select_prev_item({behavior = 'insert'})
+              else
+                cmp.complete()
+              end
+            end),
+            ['<C-n>'] = cmp.mapping(function()
+              if cmp.visible() then
+                cmp.select_next_item({behavior = 'insert'})
+              else
+                cmp.complete()
+              end
+            end),
+          },
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
