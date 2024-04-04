@@ -28,9 +28,6 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("x", "<leader>P", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>D", [["_d]])
 
--- format whole document
-vim.keymap.set("n", "<leader>=", vim.lsp.buf.format)
-
 -- move selected lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
