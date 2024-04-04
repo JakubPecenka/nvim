@@ -23,6 +23,8 @@ return {
     vim.keymap.set({ 'n', 'v' }, '<leader>=', function()
       require('conform').format({
         lsp_fallback = true,
+        timeout = 10000,
+        async = true,
       })
     end)
   end
