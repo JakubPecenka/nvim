@@ -43,3 +43,5 @@ vim.opt.colorcolumn = "80"
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
