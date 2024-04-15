@@ -27,11 +27,18 @@ return {
         builtin.find_files({ hidden = true })
       end)
       vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
-      vim.keymap.set('n', '<leader>fl', builtin.live_grep, {})
-      vim.keymap.set('n', '<leader>ft', builtin.help_tags, {})
-      vim.keymap.set('n', '<leader>fc', builtin.current_buffer_fuzzy_find, {})
+      -- find given string in files, project wide
       vim.keymap.set('n', '<leader>fe', function()
         builtin.grep_string({ search = vim.fn.input("Grep > ") });
       end)
+      -- find given string in files, project wide and respect .gitignore
+      vim.keymap.set('n', '<leader>fl', builtin.live_grep, {})
+      -- find every occurence of the word under the cursor in the current buffer
+      vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
+      -- searching for provided string in the current buffer
+      vim.keymap.set('n', '<leader>fc', builtin.current_buffer_fuzzy_find, {})
+
+      -- find help for given string
+      vim.keymap.set('n', '<leader>ft', builtin.help_tags, {})
   end
 }
