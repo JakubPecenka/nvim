@@ -31,6 +31,8 @@ return {
       vim.keymap.set('n', '<leader>fe', function()
         builtin.grep_string({ search = vim.fn.input("Grep > ") });
       end)
+      -- find string under cursor in files, project wide
+      vim.keymap.set('n', '<leader>fu', builtin.grep_string, {})
       -- find given string in files, project wide and respect .gitignore
       vim.keymap.set('n', '<leader>fl', builtin.live_grep, {})
       -- find every occurence of the word under the cursor in the current buffer
