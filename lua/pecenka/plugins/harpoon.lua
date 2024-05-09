@@ -10,11 +10,6 @@ return {
 
     -- using C-2 doesn't work as i use C-space for tmux prefix
     -- https://www.reddit.com/r/tmux/comments/103clhv/space_is_now_bound_to_2_for_some_reason/
-    vim.keymap.set("n", "<C-z>", function() harpoon:list():select(1) end)
-    vim.keymap.set("n", "<C-x>", function() harpoon:list():select(2) end)
-    vim.keymap.set("n", "<C-c>", function() harpoon:list():select(3) end)
-    vim.keymap.set("n", "<C-v>", function() harpoon:list():select(4) end)
-
     vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
     vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
     vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
