@@ -47,3 +47,9 @@ vim.keymap.set("n", "<C-j>", ":cnext<CR>")
 vim.keymap.set("n", "<C-k>", ":cprev<CR>")
 vim.keymap.set("n", "]q", ":cnext<CR>")
 vim.keymap.set("n", "[q", ":cprev<CR>")
+
+-- do so
+vim.keymap.set("n", "<leader><leader>", function ()
+  vim.cmd("so")
+end)
+
