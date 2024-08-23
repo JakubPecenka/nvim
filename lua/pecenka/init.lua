@@ -33,7 +33,7 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "<leader>gI", function() vim.lsp.buf.implementations() end, opts)
         vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("n", "<leader>gh", function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set("i", "<C-s>", function() vim.lsp.buf.signature_help() end, opts)
       end
 })
 
