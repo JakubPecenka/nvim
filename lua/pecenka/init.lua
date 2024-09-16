@@ -3,6 +3,7 @@ require("pecenka.set")
 require("pecenka.lazy")
 
 local augroup = vim.api.nvim_create_augroup
+local mygroup = augroup('mygroup', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
@@ -17,6 +18,13 @@ autocmd('TextYankPost', {
         })
     end,
 })
+
+autocmd({"BufWritePre"}, {
+    group = mygroup,
+    pattern = "*",
+    command = [[%s/\s\+$//e]],
+})
+
 
 autocmd('LspAttach', {
     callback = function(e)
