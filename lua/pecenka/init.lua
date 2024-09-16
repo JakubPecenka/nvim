@@ -26,7 +26,7 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
         vim.keymap.set("n", "<leader>d", function() vim.diagnostic.open_float() end, opts)
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
-        vim.keymap.set("n", "[d>", function() vim.diagnostic.goto_prev() end, opts)
+        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
         -- vim.keymap.set("n", "<C-]>", function() vim.diagnostic.goto_next() end, opts)
         -- vim.keymap.set("n", "<C-[>", function() vim.diagnostic.goto_prev() end, opts)
         vim.keymap.set("n", "<leader>c", function() vim.lsp.buf.code_action() end, opts)
