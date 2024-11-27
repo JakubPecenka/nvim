@@ -4,7 +4,9 @@ return {
 	keys = {
 		{
 			"<leader>tt",
-			"<cmd>Trouble diagnostics toggle<cr>",
+            function ()
+                require("trouble").toggle({mode = "diagnostics"})
+            end,
 			desc = "Diagnostics (Trouble)",
 		},
 		{
