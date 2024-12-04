@@ -91,6 +91,7 @@ return {
           },
           mapping = {
             ['<CR>'] = cmp.mapping.confirm({select = true}),
+            ['<C-y>'] = cmp.mapping.confirm({select = true}),
             ['<C-e>'] = cmp.mapping.abort(),
             ['<Up>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
             ['<Down>'] = cmp.mapping.select_next_item({behavior = 'select'}),
@@ -114,6 +115,7 @@ return {
                 { name = 'luasnip' }, -- For luasnip users.
             }, {
                 { name = 'buffer' },
+                { name = 'path' },
             })
         })
 
