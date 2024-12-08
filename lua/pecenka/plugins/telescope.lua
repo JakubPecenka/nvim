@@ -28,7 +28,7 @@ return {
         builtin.find_files({ hidden = true })
       end)
 
-      vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
+      vim.keymap.set('n', '<leader>fs', builtin.git_files, {})
 
       -- find given string in files, project wide
       vim.keymap.set('n', '<leader>fe', function()

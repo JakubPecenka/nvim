@@ -9,7 +9,7 @@ return {
 
     vim.g.vimtex_compiler_method = 'latexmk'
     vim.g.vimtex_compiler_latexmk = {
-      executable = 'docker-latex.sh',
+      executable = 'docker-latex',
       options = {
         -- '-xelatex',
         '-pdf',
