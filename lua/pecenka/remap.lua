@@ -26,7 +26,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- delete or paste over and keep buffered
 vim.keymap.set("x", "<leader>P", [["_dP]])
-vim.keymap.set({ "n", "v" }, "<leader>D", [["_d]])
+vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
 
 -- move selected lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
