@@ -55,7 +55,9 @@ local function populate_quickfix_with_files()
 
     local entries = {}
     for _, file in ipairs(files) do
-        table.insert(entries, { filename = file })
+        if vim.fn.isdirectory(file) == 0 then
+            table.insert(entries, { filename = file })
+        end
     end
     vim.fn.setqflist(entries, "r")
     vim.cmd("copen")
