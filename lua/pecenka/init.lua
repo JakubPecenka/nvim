@@ -48,3 +48,22 @@ autocmd('LspAttach', {
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+local function populate_quickfix_with_files()
+    local files = vim.fn.glob(vim.fn.expand("%:p:h") .. "/*", false, true)
+    vim.fn.setqflist({}, "r")
+
+    local entries = {}
+    for _, file in ipairs(files) do
+        table.insert(entries, { filename = file })
+    end
+    vim.fn.setqflist(entries, "r")
+    vim.cmd("copen")
+end
+
+vim.api.nvim_create_user_command(
+    "PopulateQuickfix",
+    populate_quickfix_with_files,
+    { desc = "Populate quickfix list with files in current directory" }
+)
+
