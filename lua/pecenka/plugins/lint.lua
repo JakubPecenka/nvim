@@ -16,17 +16,16 @@ return {
 			rust = { "cargo" },
 		}
 
+		local checkstyle = require("lint.linters.checkstyle")
 
-        local checkstyle = require("lint.linters.checkstyle")
-
-        checkstyle.config = {
-            filetypes = { "java" },
-            cmd = "checkstyle",
-            args = { "-c", "~/.config/nvim/checkstyle.xml", "%f" },
-            stream = "stderr",
-            parser = require("lint.parser").from_errorformat("%f:%l:%c: %m"),
-            config_file = "~/.config/nvim/checkstyle.xml",
-        }
+		checkstyle.config = {
+			filetypes = { "java" },
+			cmd = "checkstyle",
+			args = { "-c", "~/.config/nvim/checkstyle.xml", "%f" },
+			stream = "stderr",
+			parser = require("lint.parser").from_errorformat("%f:%l:%c: %m"),
+			config_file = "~/.config/nvim/checkstyle.xml",
+		}
 
 		-- local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 		--

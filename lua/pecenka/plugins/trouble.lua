@@ -4,9 +4,9 @@ return {
 	keys = {
 		{
 			"<leader>tt",
-            function ()
-                require("trouble").toggle({mode = "diagnostics"})
-            end,
+			function()
+				require("trouble").toggle({ mode = "diagnostics" })
+			end,
 			desc = "Diagnostics (Trouble)",
 		},
 		{
