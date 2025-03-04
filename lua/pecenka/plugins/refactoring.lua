@@ -8,10 +8,10 @@ return {
 		local refactoring = require("refactoring")
 		refactoring.setup()
 
-		vim.keymap.set("x", "<leader>Re", function()
+		vim.keymap.set("x", "<leader>Rf", function()
 			refactoring.refactor("Extract Function")
 		end)
-		vim.keymap.set("x", "<leader>Rf", function()
+		vim.keymap.set("x", "<leader>RF", function()
 			refactoring.refactor("Extract Function To File")
 		end)
 		-- Extract function supports only visual mode
@@ -31,7 +31,7 @@ return {
 		vim.keymap.set("n", "<leader>Rb", function()
 			refactoring.refactor("Extract Block")
 		end)
-		vim.keymap.set("n", "<leader>Rbf", function()
+		vim.keymap.set("n", "<leader>RB", function()
 			refactoring.refactor("Extract Block To File")
 		end)
 		-- Extract block supports only normal mode
