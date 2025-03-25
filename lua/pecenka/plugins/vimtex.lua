@@ -17,5 +17,19 @@ return {
 				-- '-synctex=1',
 			},
 		}
+
+    local expander = function (expansion_pattern, word_size)
+      local word = vim.fn.expand(expansion_pattern)
+      vim.cmd("normal! vi" .. word_size .. "\"_d")
+      vim.cmd("normal! i\\textit{" .. word .. "}")
+    end
+
+    vim.keymap.set("n", "\\ti", function()
+      expander("<cword>", "w")
+    end, {})
+
+    vim.keymap.set("n", "\\tI", function()
+      expander("<cWORD>", "W")
+    end, {})
 	end,
 }

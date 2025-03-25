@@ -14,6 +14,9 @@ vim.keymap.set("n", "<leader>y", [["+y]])
 -- turn on copilot
 vim.keymap.set("n", "<leader>§§", ":Copilot enable<CR>")
 
+-- open TODO file
+vim.keymap.set("n", "<leader>to", ":TodoFile<CR>")
+
 -- to keep in the middle when up-and-downing
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
