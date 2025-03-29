@@ -49,6 +49,44 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
+vim.lsp.set_log_level("warn")
+
+vim.api.nvim_create_user_command(
+  "ClearLogs",
+  function()
+    local function getFileSize(filename)
+      local res = -1
+      local f = io.open(filename, "r")
+      if f == nil then
+        return res
+      end
+      res = f:seek("end")
+      f:close()
+      return res
+    end
+
+    local function truncate_log(file_path, max_size)
+      local size = getFileSize(file_path)
+      if size == -1 then return end
+      if size > max_size then
+        local file = io.open(file_path, "w")
+        if not file then return end
+        file:write("")
+        file:close()
+      end
+    end
+    local max_log_size = 1024 * 1024 * 100 -- 100MB
+    local log_files = {
+      vim.fn.stdpath("log") .. "/log",
+      vim.fn.stdpath("log") .. "/lsp.log",
+    }
+    for _, file in ipairs(log_files) do
+      truncate_log(file, max_log_size)
+    end
+  end,
+  { desc = "Clear log files" }
+)
+
 vim.api.nvim_create_user_command(
     "PopulateQuickfix",
     function ()
