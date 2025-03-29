@@ -31,10 +31,6 @@ return {
 		require("mason-tool-installer").setup({
 			ensure_installed = {
 				"stylua",
-				"gofumpt",
-				"goimports",
-				"clang-format",
-				"prettier",
 				"black",
 				"isort",
 			},
@@ -42,7 +38,6 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
-				"rust_analyzer",
 				"pyright",
 			},
 			handlers = {
