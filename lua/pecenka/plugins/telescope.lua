@@ -28,6 +28,8 @@ return {
 			builtin.find_files({ hidden = true })
 		end)
 
+		vim.keymap.set("n", "<leader>fd", builtin.lsp_document_symbols, {})
+
 		vim.keymap.set("n", "<leader>fs", builtin.git_files, {})
 
 		-- find given string in files, project wide
