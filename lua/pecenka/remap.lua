@@ -21,6 +21,10 @@ vim.keymap.set("n", "<leader>to", ":TodoFile<CR>")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- keep cursor in the middle when searching
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')
+
 -- exit insert mode to normal mode
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
@@ -53,3 +57,5 @@ vim.keymap.set("n", "<leader>qq", ":copen<CR>")
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+
