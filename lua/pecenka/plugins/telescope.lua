@@ -8,6 +8,19 @@ return {
 	config = function()
 		require("telescope").setup({
 			defaults = {
+        file_ignore_patterns = {
+          "node_modules",
+          ".git",
+          "__pycache__",
+          ".venv",
+          -- "%.lock",
+          -- "%.zip",
+          -- "%.tar.gz",
+          -- "%.tar.bz2",
+          -- "%.tar.xz",
+          -- "%.rar",
+          -- "%.7z",
+        },
 				vimgrep_arguments = {
 					"grep",
 					"--extended-regexp",
