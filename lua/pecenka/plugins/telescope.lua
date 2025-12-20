@@ -13,6 +13,7 @@ return {
           ".git",
           "__pycache__",
           ".venv",
+          -- ".pnpm",
           -- "%.lock",
           -- "%.zip",
           -- "%.tar.gz",
