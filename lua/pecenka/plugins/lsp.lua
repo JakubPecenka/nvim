@@ -38,7 +38,9 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
-				"pyright",
+				-- "pyright",
+        "vtsls",
+        "ty",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
@@ -47,22 +49,34 @@ return {
 					})
 				end,
 
-				["pyright"] = function()
+				-- ["pyright"] = function()
+				-- 	local lspconfig = require("lspconfig")
+				-- 	lspconfig.pyright.setup({
+				-- 		capabilities = capabilities,
+				-- 		settings = {
+				-- 			python = {
+				-- 				analysis = {
+				-- 					autoSearchPaths = true,
+				-- 					useLibraryCodeForTypes = true,
+				-- 					diagnosticMode = "workspace",
+				-- 					typeCheckingMode = "basic",
+				-- 				},
+				-- 			},
+				-- 		},
+				-- 	})
+				-- end,
+
+        ["ty"] = function ()
 					local lspconfig = require("lspconfig")
-					lspconfig.pyright.setup({
+          lspconfig.ty.setup({
 						capabilities = capabilities,
-						settings = {
-							python = {
-								analysis = {
-									autoSearchPaths = true,
-									useLibraryCodeForTypes = true,
-									diagnosticMode = "workspace",
-									typeCheckingMode = "basic",
-								},
-							},
-						},
-					})
-				end,
+            settings = {
+              ty = {
+                diagnosticMode = 'workspace',
+              }
+            }
+          })
+        end,
 
 				["lua_ls"] = function()
 					local lspconfig = require("lspconfig")
