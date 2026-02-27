@@ -22,16 +22,6 @@ return {
           -- "%.rar",
           -- "%.7z",
         },
-				vimgrep_arguments = {
-					"grep",
-					"--extended-regexp",
-					"--color=never",
-					"--with-filename",
-					"--line-number",
-					"-b",
-					"--ignore-case",
-					"--recursive",
-				},
 			},
 		})
 
