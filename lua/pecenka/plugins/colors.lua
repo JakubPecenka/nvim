@@ -1,12 +1,34 @@
 function ColorMyPencils(color)
-	color = color or "rose-pine-moon"
+	if not color then
+		color = vim.o.background == "light" and "rose-pine-dawn" or "rose-pine-moon"
+	end
 	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
+vim.api.nvim_create_autocmd("OptionSet", {
+	pattern = "background",
+	callback = function()
+		ColorMyPencils()
+	end,
+})
+
 return {
+	{
+		"f-person/auto-dark-mode.nvim",
+		config = function()
+			require("auto-dark-mode").setup({
+				set_dark_mode = function()
+					vim.o.background = "dark"
+				end,
+				set_light_mode = function()
+					vim.o.background = "light"
+				end,
+			})
+		end,
+	},
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
@@ -17,6 +39,7 @@ return {
 					italic = false,
 				},
 			})
+			ColorMyPencils()
 		end,
 	},
 	{
@@ -24,7 +47,7 @@ return {
 		name = "gruvbox",
 		config = function()
 			require("gruvbox").setup({
-				terminal_colors = true, -- add neovim terminal colors
+				terminal_colors = true,
 				undercurl = true,
 				underline = true,
 				bold = true,
@@ -40,14 +63,13 @@ return {
 				invert_signs = false,
 				invert_tabline = false,
 				invert_intend_guides = false,
-				inverse = true, -- invert background for search, diffs, statuslines and errors
-				contrast = "hard", -- can be "hard", "soft" or empty string
+				inverse = true,
+				contrast = "hard",
 				palette_overrides = {},
 				overrides = {},
 				dim_inactive = false,
 				transparent_mode = false,
 			})
-			ColorMyPencils()
 		end,
 	},
 	{
@@ -55,19 +77,14 @@ return {
 		name = "tokyonight",
 		config = function()
 			require("tokyonight").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-				transparent = true, -- Enable this to disable setting the background color
-				terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+				style = "storm",
+				transparent = true,
+				terminal_colors = true,
 				styles = {
-					-- Style to be applied to different syntax groups
-					-- Value is any valid attr-list value for `:help nvim_set_hl`
 					comments = { italic = false },
 					keywords = { italic = false },
-					-- Background styles. Can be "dark", "transparent" or "normal"
-					sidebars = "dark", -- style for sidebars, see below
-					floats = "dark", -- style for floating windows
+					sidebars = "dark",
+					floats = "dark",
 				},
 			})
 		end,

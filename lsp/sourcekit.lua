@@ -1,6 +1,6 @@
 return {
   cmd = { "sourcekit-lsp" },
-  filetypes = { "swift", "objc", "objcpp", "c", "cpp" },
+  filetypes = { "swift" },
   root_markers = {
     ".git",
     "Package.swift",

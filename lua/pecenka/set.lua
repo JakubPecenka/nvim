@@ -20,7 +20,6 @@ vim.opt.undofile = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
-vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
@@ -40,10 +39,7 @@ vim.opt.colorcolumn = "80"
 -- disable copilot plugin -- doesn't work
 -- vim.cmd(":Copilot disable")
 
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+-- ]d/[d (diagnostic jump) and <Esc> (nohlsearch) are built-in defaults
 
 vim.opt.timeoutlen = 5000
 vim.opt.ttimeoutlen = 10

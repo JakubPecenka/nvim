@@ -1,34 +1,27 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "main",
 	build = ":TSUpdate",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-  },
+	lazy = false,
 	config = function()
-		require("nvim-treesitter.configs").setup({
-			-- A list of parser names, or "all" (the five listed parsers should always be installed)
-			ensure_installed = {"python", "lua", "dockerfile", "swift" },
+		require("nvim-treesitter").setup({
+			ensure_installed = { "bash", "dockerfile", "typescript", "javascript", "rust", "go", "css", "html", "swift" },
+		})
 
-			-- Install parsers synchronously (only applied to `ensure_installed`)
-			sync_install = false,
+		-- Auto-update parsers when Neovim version changes (e.g. after brew upgrade)
+		local v = vim.version()
+		local ver = ("%d.%d.%d"):format(v.major, v.minor, v.patch)
+		local ver_file = vim.fn.stdpath("data") .. "/ts_nvim_version"
+		local last = vim.fn.filereadable(ver_file) == 1 and vim.fn.readfile(ver_file)[1] or nil
+		if last ~= ver then
+			vim.fn.writefile({ ver }, ver_file)
+			vim.cmd("TSUpdate")
+		end
 
-			-- Automatically install missing parsers when entering buffer
-			-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-			auto_install = true,
-
-			indent = {
-				enable = true,
-			},
-
-			highlight = {
-				enable = true,
-
-				-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-				-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-				-- Using this option may slow down your editor, and you may see some duplicate highlights.
-				-- Instead of true it can also be a list of languages
-				additional_vim_regex_highlighting = { "markdown" },
-			},
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(args)
+				pcall(vim.treesitter.start, args.buf)
+			end,
 		})
 	end,
 }

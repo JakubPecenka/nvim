@@ -1,5 +1,5 @@
 return {
-  cmd = { "ty", "server" },
+  cmd = { "pyright-langserver", "--stdio" },
   filetypes = { "python" },
   root_markers = {
     "pyproject.toml",
@@ -10,10 +10,12 @@ return {
     ".git",
   },
   settings = {
-    ty = {
-      diagnosticMode = "workspace",
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = "workspace",
+      },
     },
   },
 }
-
-

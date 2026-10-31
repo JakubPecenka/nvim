@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 vim.keymap.set({ "n", "v" }, "<leader>f=", vim.lsp.buf.format)
 
 -- exit to project
-vim.keymap.set("n", "<leader>p", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>p", "<CMD>Oil<CR>")
 
 -- copy to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -50,8 +50,10 @@ vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]]) -- make the window b
 vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
 
 -- navigating quickfix list
-vim.keymap.set("n", "]q", ":cnext<CR>")
-vim.keymap.set("n", "[q", ":cprev<CR>")
+vim.keymap.set("n", "]q", ":cnext<CR>zz")
+vim.keymap.set("n", "[q", ":cprev<CR>zz")
+vim.keymap.set("n", "<C-n>", ":cnext<CR>zz")
+vim.keymap.set("n", "<C-p>", ":cprev<CR>zz")
 vim.keymap.set("n", "<leader>qq", ":copen<CR>")
 
 -- do so
