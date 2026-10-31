@@ -4,8 +4,12 @@ return {
 	build = ":TSUpdate",
 	lazy = false,
 	config = function()
-		require("nvim-treesitter").setup({
-			ensure_installed = { "bash", "dockerfile", "typescript", "javascript", "rust", "go", "css", "html", "swift" },
+		-- The main branch has no ensure_installed (setup() only takes install_dir):
+		-- install() fetches parsers, skipping the ones already there. Needs the
+		-- tree-sitter CLI and a C compiler.
+		require("nvim-treesitter").install({
+			"bash", "dockerfile", "typescript", "tsx", "javascript", "rust", "go", "css", "html", "swift",
+			"python", "java", "sql", "json", "yaml", "toml", "markdown", "markdown_inline",
 		})
 
 		-- Auto-update parsers when Neovim version changes (e.g. after brew upgrade)
